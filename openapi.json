@@ -1,0 +1,102 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Financera API",
+    "version": "1.0.0",
+    "description": "API for Financera application"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333"
+    }
+  ],
+  "paths": {
+    "/expenses": {
+      "post": {
+        "summary": "Create a new expense",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Expense"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Expense created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Expense"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all expenses",
+        "responses": {
+          "200": {
+            "description": "List of expenses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Expense"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Expense": {
+        "type": "object",
+        "properties": {
+          "expenseName": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "installments": {
+            "type": "boolean"
+          },
+          "installmentInfo": {
+            "type": "object",
+            "properties": {
+              "installments": {
+                "type": "number"
+              },
+              "frequence": {
+                "type": "number"
+              }
+            }
+          },
+          "paymentType": {
+            "type": "string",
+            "enum": ["debit", "cash", "credit card"]
+          },
+          "expenseType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "comments": {
+            "type": "string"
+          }
+        },
+        "required": ["expenseName", "amount", "installments", "paymentType", "expenseType"]
+      }
+    }
+  }
+}

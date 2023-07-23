@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",                    /* Specify the ECMAScript target version for the output (e.g., ES5, ES2015, ES2016, ES2017, ES2018, ES2019, ES2020, ES2021, or ESNext). */
+    "module": "CommonJS",                  /* Specify the module system for the generated code (e.g., CommonJS, ESNext, UMD, etc.). CommonJS is typically used for Node.js applications. */
+    "outDir": "./dist",                    /* Specify the output directory for the compiled JavaScript files. */
+    "rootDir": "./src",                    /* Specify the root directory where your TypeScript source files are located. */
+    "strict": true,                        /* Enable all strict type-checking options. */
+    "esModuleInterop": true,               /* Enable compatibility with CommonJS-style imports. */
+    "forceConsistentCasingInFileNames": true /* Ensure that TypeScript uses consistent casing in file names (important for case-sensitive systems). */
+  },
+  "include": [
+    "src/**/*.ts"                        /* Specify the files or patterns to be included in the compilation process. */
+  ],
+  "exclude": [
+    "node_modules"                       /* Specify the files or patterns to be excluded from the compilation process. */
+  ]
+}
